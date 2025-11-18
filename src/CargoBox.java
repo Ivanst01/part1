@@ -259,7 +259,18 @@ public class CargoBox {
      *  reference in CargoBoxs
      */
     public static CargoBox heaviestCargoBox(CargoBox[] CargoBoxs) {
-        // TO DO
-        return null;
+        
+        CargoBox result = null;
+
+        for (CargoBox cargoBox : CargoBoxs) {
+            if (cargoBox == null) {
+                continue;
+            }
+            if (result == null || cargoBox.totalWeightInGrammes() > result.totalWeightInGrammes()){
+                result = cargoBox;
+            }
+        }
+        
+        return result;
     }
 }
