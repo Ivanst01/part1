@@ -25,7 +25,6 @@ public class CargoBox {
      * Constructs a new CargoBox without any Items.
      */
     public CargoBox() {
-        // TO DO
         this.items = new ArrayList<>();
     }
 
@@ -39,7 +38,6 @@ public class CargoBox {
      *  constructed CargoBox
      */
     public CargoBox(Item[] items) {
-        // TO DO
         this();
         this.addAll(items);
     }
@@ -54,8 +52,11 @@ public class CargoBox {
      * @return true if e is not null, false otherwise
      */
     public boolean add(Item e) {
-        // TO DO 
-        return false;
+        if (e == null) {
+            return false;
+        }
+        this.items.add(e);
+        return true;
     }
 
     /**
@@ -67,8 +68,16 @@ public class CargoBox {
      *  false otherwise
      */
     public boolean addAll(Item[] items) {
-        // TO DO 
-        return false;
+        
+        boolean atLeastOneNonNull = false; // Initially aasing false, after the iterantion it returns the 
+
+        for (Item currentItem : items) {
+            if (currentItem != null){
+                this.items.add(currentItem);
+                atLeastOneNonNull = true;
+            }
+        }
+        return atLeastOneNonNull;
     }
 
     /**
