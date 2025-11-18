@@ -222,8 +222,18 @@ public class CargoBox {
      */
     @Override
     public String toString() {
-        // TO DO
-        return null;
+        String listString = "[";
+        int count = numberOfItems();
+
+        for (int i = 0; i < count; i++) {
+            if (i > 0) {
+                listString += ", ";
+            }
+            listString += this.items.get(i).toString();
+        }
+        
+        listString += "]";
+        return listString;
     }
 
     /* class methods */
