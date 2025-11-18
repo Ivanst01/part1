@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /**
  * A CargoBox holds zero or more Items and can provide information about the
  * Items. One can add Items to a CargoBox during its lifetime, empty the
@@ -11,7 +14,10 @@
  */
 public class CargoBox {
 
-    // TO DO
+    /**
+     * Declares the instanve variable that store the items iside the Cargobox
+     */
+    private ArrayList<Item> items;
 
     /* Constructors */
 
@@ -20,6 +26,7 @@ public class CargoBox {
      */
     public CargoBox() {
         // TO DO
+        this.items = new ArrayList<>();
     }
 
     /**
@@ -33,6 +40,8 @@ public class CargoBox {
      */
     public CargoBox(Item[] items) {
         // TO DO
+        this();
+        this.addAll(items);
     }
 
     /* Modifiers */
@@ -45,7 +54,7 @@ public class CargoBox {
      * @return true if e is not null, false otherwise
      */
     public boolean add(Item e) {
-        // TO DO
+        // TO DO 
         return false;
     }
 
@@ -58,7 +67,7 @@ public class CargoBox {
      *  false otherwise
      */
     public boolean addAll(Item[] items) {
-        // TO DO
+        // TO DO 
         return false;
     }
 
