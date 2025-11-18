@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class CargoBox {
 
     /**
-     * Declares the instanve variable that store the items iside the Cargobox
+     * Declares the instanve variable that stores the items inside the Cargobox
      */
     private ArrayList<Item> items;
 
@@ -96,7 +96,7 @@ public class CargoBox {
      *  Items that are kept
      */
     public void keepOnlyItemsWith(int maxItemWeightInGrammes) {
-        
+        this.items.removeIf(item -> item.getWeightInGrammes() > maxItemWeightInGrammes);
     }
 
     /* Accessors */
@@ -107,8 +107,7 @@ public class CargoBox {
      * @return the number of non-null Items in this CargoBox
      */
     public int numberOfItems() {
-        // TO DO
-        return this.items.size();
+        return this.items.size(); //items already contains non-null items, since add() and addAll() ignores nulls
     }
 
     /**
@@ -117,8 +116,12 @@ public class CargoBox {
      * @return the total weight of the Items in this CargoBox.
      */
     public int totalWeightInGrammes() {
-        // TO DO
-        return 0;
+        int totalWeight = 0;
+        
+        for (Item currentItem : this.items) {
+            totalWeight =  totalWeight + currentItem.getWeightInGrammes();
+        }
+        return totalWeight;
     }
 
     /**
@@ -136,8 +139,12 @@ public class CargoBox {
      *  or -1.0 if there is no such Item.
      */
     public double averageWeightInGrammes() {
-        // TO DO
-        return 0.0;
+        double average = 0.0;
+        
+        if (numberOfItems() > 0) {
+            average = totalWeightInGrammes() / numberOfItems();
+        }
+        return average;
     }
 
     /**
