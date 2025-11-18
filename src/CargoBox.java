@@ -84,7 +84,7 @@ public class CargoBox {
      * Empties this CargoBox to a CargoBox that contains 0 Items.
      */
     public void empty() {
-        // TO DO
+        this.items.clear();
     }
 
     /**
@@ -96,7 +96,7 @@ public class CargoBox {
      *  Items that are kept
      */
     public void keepOnlyItemsWith(int maxItemWeightInGrammes) {
-        // TO DO
+        
     }
 
     /* Accessors */
@@ -108,7 +108,7 @@ public class CargoBox {
      */
     public int numberOfItems() {
         // TO DO
-        return 0;
+        return this.items.size();
     }
 
     /**
