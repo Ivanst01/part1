@@ -156,8 +156,17 @@ public class CargoBox {
      *  null if this CargoBox does not contain any Item objects
      */
     public Item greatestItem() {
-        // TO DO
-        return null;
+        int greatest = this.items.get(0).getWeightInGrammes();
+        Item result = this.items.get(0);
+
+        for (Item currentItem : this.items){
+            if (currentItem.getWeightInGrammes() > greatest) {
+                greatest = currentItem.getWeightInGrammes();
+                result = currentItem;
+            }
+        }
+
+        return result;
     }
 
     /**
