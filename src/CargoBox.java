@@ -72,8 +72,7 @@ public class CargoBox {
         boolean atLeastOneNonNull = false; // Initially aasing false, after the iterantion it returns the 
 
         for (Item currentItem : items) {
-            if (currentItem != null){
-                this.items.add(currentItem);
+            if (this.add(currentItem)) {
                 atLeastOneNonNull = true;
             }
         }
