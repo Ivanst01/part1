@@ -184,8 +184,15 @@ public class CargoBox {
      *  whose weight is less than or equal to the specified method parameter
      */
     public CargoBox makeNewCargoBoxWith(int maxItemWeightInGrammes) {
-         // TO DO
-        return null;
+        CargoBox newCargoBox = new CargoBox();
+
+        for (Item currentItem : this.items) {
+            if (currentItem.getWeightInGrammes() <= maxItemWeightInGrammes) {
+                newCargoBox.add(currentItem);
+            }
+        }
+
+        return newCargoBox;
     }
 
     /**
