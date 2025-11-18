@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * is created, and it may grow and shrink over the lifetime of a CargoBox
  * object.)
  *
- * @author
+ * @author Ivan Stolnic
  */
 public class CargoBox {
 
@@ -138,12 +138,13 @@ public class CargoBox {
      *  or -1.0 if there is no such Item.
      */
     public double averageWeightInGrammes() {
-        double average = 0.0;
-        
-        if (numberOfItems() > 0) {
-            average = totalWeightInGrammes() / numberOfItems();
+  
+        if (this.items.isEmpty()) {
+            return -1.0;
         }
-        return average;
+        
+        return (double) totalWeightInGrammes() / numberOfItems();
+
     }
 
     /**
@@ -156,17 +157,20 @@ public class CargoBox {
      *  null if this CargoBox does not contain any Item objects
      */
     public Item greatestItem() {
-        int greatest = this.items.get(0).getWeightInGrammes();
-        Item result = this.items.get(0);
+
+        if (this.items.isEmpty()) {
+            return null;
+        }
+        
+        Item greatest = this.items.get(0);
 
         for (Item currentItem : this.items){
-            if (currentItem.getWeightInGrammes() > greatest) {
-                greatest = currentItem.getWeightInGrammes();
-                result = currentItem;
+            if (currentItem.compareTo(greatest) > 0) {
+                greatest = currentItem;
             }
         }
 
-        return result;
+        return greatest;
     }
 
     /**
@@ -180,7 +184,7 @@ public class CargoBox {
      *  whose weight is less than or equal to the specified method parameter
      */
     public CargoBox makeNewCargoBoxWith(int maxItemWeightInGrammes) {
-        // TO DO
+         // TO DO
         return null;
     }
 
